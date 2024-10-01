@@ -8,4 +8,6 @@ ADD    ./djangosample   /app/djangosample/
 ADD    ./gunicorn       /app/gunicorn/
 ADD    ./manage.py      /app/
 
+RUN    sed -i 's/\r//' /app/manage.py
+
 CMD ["gunicorn", "djangosample.wsgi", "-c", "gunicorn/prod.py"]
